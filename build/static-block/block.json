@@ -3,7 +3,7 @@
   "apiVersion": 2,
   "name": "learn-gutenberg/static-block",
   "version": "0.1.0",
-  "title": "Learn Gutenberg - Static Block",
+  "title": "LG - Static Block",
   "category": "learn-gutenberg",
   "icon": "smiley",
   "description": "Static block example",
