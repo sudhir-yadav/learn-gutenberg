@@ -47,3 +47,13 @@ function lg_static_block_init() {
 
 }
 add_action( 'init', 'lg_static_block_init' );
+
+/**
+ * Registering dynamic block.
+ */
+function lg_dynamic_block_init() {
+
+	register_block_type( __DIR__ . '/build/dynamic-block/' );
+
+}
+add_action( 'init', 'lg_dynamic_block_init' );
