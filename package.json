@@ -6,13 +6,17 @@
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
 	"scripts": {
-		"build": "wp-scripts build",
+		"build": "wp-scripts build --webpack-src-dir=block-components --output-path=build/block-components",
+		"build:non-block": "wp-scripts build --output-path=build/non-block-components --config=./non-block.webpack.config.js",
+		"build:all": "npm run build && npm run build:non-block",
 		"format": "wp-scripts format",
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js",
 		"packages-update": "wp-scripts packages-update",
 		"plugin-zip": "wp-scripts plugin-zip",
-		"start": "wp-scripts start"
+		"start": "wp-scripts start --webpack-src-dir=block-components --output-path=build/components",
+		"start:non-block": "wp-scripts start --output-path=build/non-block-components --config=./non-block.webpack.config.js",
+		"start:all": "npm run start && npm run start:non-block"
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^25.0.0"

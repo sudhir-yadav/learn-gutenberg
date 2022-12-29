@@ -1,0 +1,1 @@
+(()=>{"use strict";const t=window.wp.element,n=window.wp.plugins,e=window.wp.editPost;(0,n.registerPlugin)("main-dashboard-button-test",{render:()=>(0,t.createElement)(e.__experimentalMainDashboardButton,null,"Custom main dashboard button content")})})();

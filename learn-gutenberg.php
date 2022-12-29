@@ -14,46 +14,10 @@
  * @package           learn-gutenberg
  */
 
-/**
- * Filters the default array of categories for block types to add custom category.
- *
- * @see https://developer.wordpress.org/reference/hooks/block_categories_all/
- *
- * @param array[]                 $block_categories     Array of categories for block types.
- * @param WP_Block_Editor_Context $block_editor_context The current block editor context.
- */
-function lg_block_categories_all_filter( $block_categories, $block_editor_context ) {
+ define( 'LG_PLUGIN_PATH', __DIR__ );
 
-	return array_merge(
-		$block_categories,
-		[
-			[
-				'slug'  => 'learn-gutenberg',
-				'title' => esc_html__( 'Learn Gutenberg', 'learn-gutenberg' ),
-				'icon'  => null,
-			],
-		]
-	);
-
-}
-add_filter( 'block_categories_all', 'lg_block_categories_all_filter', 10, 2 ); 
-
-/**
- * Registering static block.
- */
-function lg_static_block_init() {
-
-	register_block_type( __DIR__ . '/build/static-block/' );
-
-}
-add_action( 'init', 'lg_static_block_init' );
-
-/**
- * Registering dynamic block.
- */
-function lg_dynamic_block_init() {
-
-	register_block_type( __DIR__ . '/build/dynamic-block/' );
-
-}
-add_action( 'init', 'lg_dynamic_block_init' );
+ require_once LG_PLUGIN_PATH . '/filters.php';
+ require_once LG_PLUGIN_PATH . '/register-block-components.php';
+ require_once LG_PLUGIN_PATH . '/register-non-block-components.php';
+ require_once LG_PLUGIN_PATH . '/build/non-block-components/format-api/index.php';
+ require_once LG_PLUGIN_PATH . '/build/non-block-components/slotfill-api/index.php';
